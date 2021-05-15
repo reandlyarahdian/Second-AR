@@ -1729,6 +1729,8 @@ MonoBehaviour:
   ballPos: {fileID: 0}
   isEnemy: 0
   wait: 4
+  taging: 
+  radius: 0
 --- !u!135 &6500870143819679863
 SphereCollider:
   m_ObjectHideFlags: 0

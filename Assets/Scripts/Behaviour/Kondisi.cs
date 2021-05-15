@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "PluggableAI/Kondisi")]
+[CreateAssetMenu(menuName = "State Machine/Kondisi")]
 public class Kondisi : ScriptableObject
 {
     public Action[] actions;

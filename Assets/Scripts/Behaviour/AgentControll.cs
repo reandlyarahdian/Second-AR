@@ -57,7 +57,7 @@ public class AgentControll : MonoBehaviour
 
         foreach (var Collide in hitColliders)
         {
-            if (Collide.tag == taging)
+            if (Collide.tag == "Player")
             {
                 Transform transform = Collide.GetComponent<AgentControll>().ballPos;
                 ball.transform.SetParent(null);
@@ -71,28 +71,33 @@ public class AgentControll : MonoBehaviour
 
     public void GoToPreviousWaypoint() 
     {
+        agent.speed = 2f;
         agent.destination = point;
         transform.rotation = rotation; 
         StartCoroutine(enumerator());
     }
 
     public void GoToBall() 
-    { 
+    {
+        agent.speed = 1.5f;
         agent.destination = ball.transform.position; 
     }
 
     public void GoToGate()
     {
+        agent.speed = 0.75f;
         agent.destination = gate.transform.position;
     }
 
     public void GoForward()
     {
+        agent.speed = 1.5f;
         agent.destination = new Vector3(transform.position.x, transform.position.y, 17f);
     }
 
     public void GoToTarget()
     {
+        agent.speed = 1f;
         agent.destination = target.transform.position;
     }
 
@@ -116,42 +121,18 @@ public class AgentControll : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Attacker")
         {
             target = other.gameObject;
             col.enabled = false;
             isEnemy = true;
             
         }
-        if (other.tag == "Ball")
-        {
-            StaticBall.isBall = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Ball")
-        {
-            StaticBall.isBall = false;
-        }
     }
 
     public bool BallCheck()
     {
-        if (StaticBall.isBall)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    public bool BallNotCheck()
-    {
-        if (!StaticBall.isBall)
+        if (ball.isBall)
         {
             return true;
         }

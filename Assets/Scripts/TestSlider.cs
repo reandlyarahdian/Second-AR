@@ -16,10 +16,15 @@ public class TestSlider : MonoBehaviour
     public Color color;
 
     public Color hilightColor;
+    [HideInInspector]
+    public CharControl @char;
+
+    public Transform parent;
 
     private void Awake()
     {
         slider = GetComponent<Slider>();
+        @char = GetComponent<CharControl>();
         AddingValue();
     }
 
@@ -62,4 +67,18 @@ public class TestSlider : MonoBehaviour
         }
     }
 
+    public void ValueMin(Vector3 position)
+    {
+        if (slider.value >= @char.EnergyCost)
+        {
+            slider.value = slider.value - @char.EnergyCost;
+            Instant(position);
+        }
+        else return;
+    }
+    private void Instant(Vector3 position)
+    {
+        Instantiate(@char.CharPrefab, position, @char.CharPrefab.transform.rotation, parent);
+        Debug.Log(position);
+    }
 }

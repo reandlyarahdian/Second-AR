@@ -6,13 +6,13 @@ public class NotBall : Decision
 {
     public override bool Test(SMClass sm)
     {
-        if (sm.GetNavMeshAgent().BallNotCheck())
+        if (!sm.GetNavMeshAgent().BallCheck())
         {
-            return false;
+            return true;
         }
         else
         {
-            return true;
+            return false;
         }
     }
 }

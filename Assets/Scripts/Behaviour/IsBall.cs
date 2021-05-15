@@ -8,7 +8,6 @@ public class IsBall : Decision
     {
         if (sm.GetNavMeshAgent().BallCheck())
         {
-            sm.GetNavMeshAgent().ball.transform.parent = sm.GetNavMeshAgent().ballPos;
             return true;
         }
         else
