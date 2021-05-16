@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 30cfbf6e5eada1848aa4b2bb7c31b404
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: e5d3351596aaad341ba9461bf1011d3e
+  - enabled: 1
+    path: Assets/Scenes/Penalty.unity
+    guid: b983e642ffdc7544bae08b198cb3d558
+  - enabled: 1
+    path: Assets/Scenes/GameAR.unity
+    guid: 5a07c77951d111c44b5cb8c0994a9ee5
+  - enabled: 1
+    path: Assets/Scenes/PenaltyAR.unity
+    guid: 208ccb0abb20fef4f95cf2eb4f723173
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 807c6e83f16ba074ba0c1b7d64d8b704,
       type: 2}

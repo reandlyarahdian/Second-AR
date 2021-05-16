@@ -6,22 +6,32 @@ using UnityEngine.Events;
 
 public class AgentControll : MonoBehaviour
 {
+    [HideInInspector]
     public Bola ball;
+    [HideInInspector]
     public Gate gate;
+    [HideInInspector]
     public GameObject target;
+    [HideInInspector]
     public Vector3 point;
     Quaternion rotation;
     private NavMeshAgent agent;
+    [HideInInspector]
     public SphereCollider col;
+    [HideInInspector]
     public Transform ballPos;
+    [HideInInspector]
     public bool isEnemy;
     private Active active;
     public float wait;
     ObstacleAvoidanceType type;
     public string taging;
     public float radius;
-    private bool isActive;
-    private bool isBall;
+    public bool isBall;
+    [HideInInspector]
+    public Material inactiveMat, DefeaultMat;
+    [HideInInspector]
+    public example example;
 
     void Start() 
     {
@@ -32,10 +42,21 @@ public class AgentControll : MonoBehaviour
         ball = FindObjectOfType<Bola>();
         gate = FindObjectOfType<Gate>();
         type = ObstacleAvoidanceType.NoObstacleAvoidance;
+        DefeaultMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
+        example = GetComponent<example>();
+    }
+
+    private void Update()
+    {
+        if (active.Del)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void TempoCoroutine()
     {
+        charaInactive();
         agent.isStopped = true;
         PasingBall();
         StartCoroutine(enumerator());
@@ -49,6 +70,7 @@ public class AgentControll : MonoBehaviour
         yield return new WaitForSecondsRealtime(wait);
         active.enabled = true;
         agent.obstacleAvoidanceType = ObstacleAvoidanceType.HighQualityObstacleAvoidance;
+        charaActuve();
     }
 
     void PasingBall()
@@ -71,6 +93,7 @@ public class AgentControll : MonoBehaviour
 
     public void GoToPreviousWaypoint() 
     {
+        charaInactive();
         agent.speed = 2f;
         agent.destination = point;
         transform.rotation = rotation; 
@@ -102,7 +125,7 @@ public class AgentControll : MonoBehaviour
     }
 
     public void StopAgent() 
-    { 
+    {
         agent.isStopped = true; 
         agent.ResetPath(); 
     }
@@ -128,11 +151,36 @@ public class AgentControll : MonoBehaviour
             isEnemy = true;
             
         }
+
+        if (other.GetComponent<Bola>())
+        {
+            isBall = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Bola>())
+        {
+            isBall = false;
+        }
     }
 
     public bool BallCheck()
     {
         if (ball.isBall)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool NotBallCheck()
+    {
+        if (isBall)
         {
             return true;
         }
@@ -163,6 +211,22 @@ public class AgentControll : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    public void charaActuve()
+    {
+        foreach (SkinnedMeshRenderer Chara in this.GetComponentsInChildren<SkinnedMeshRenderer>())
+        {
+            Chara.material = DefeaultMat;
+        }
+    }
+
+    public void charaInactive()
+    {
+        foreach (SkinnedMeshRenderer Chara in this.GetComponentsInChildren<SkinnedMeshRenderer>())
+        {
+            Chara.material = inactiveMat;
         }
     }
 }

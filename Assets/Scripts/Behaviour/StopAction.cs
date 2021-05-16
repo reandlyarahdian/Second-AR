@@ -7,5 +7,6 @@ public class StopAction : Action
     public override void Act(SMClass sm)
     {
         sm.GetNavMeshAgent().StopAgent();
+        sm.GetNavMeshAgent().example.line.enabled = true;
     }
 }

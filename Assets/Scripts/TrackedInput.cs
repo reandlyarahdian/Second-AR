@@ -8,12 +8,13 @@ public class TrackedInput : MonoBehaviour
     TestSlider A;
     TestSlider D;
     RaycastHit raycastHit;
-    void Start()
+    IEnumerator Start()
     {
+        yield return new WaitForSeconds(0.11f);
         chars = GetComponentsInChildren<TestSlider>();
         foreach(TestSlider @char in chars)
         {
-            if(@char.@char.CharName == "Attacker")
+            if(@char.transform.parent.name == "Attacker")
             {
                 A = @char;
             }

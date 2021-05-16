@@ -6,8 +6,9 @@ public class NotBall : Decision
 {
     public override bool Test(SMClass sm)
     {
-        if (!sm.GetNavMeshAgent().BallCheck())
+        if (!sm.GetNavMeshAgent().NotBallCheck() && sm.GetNavMeshAgent().BallCheck())
         {
+            sm.GetNavMeshAgent().example.line.enabled = false;
             return true;
         }
         else

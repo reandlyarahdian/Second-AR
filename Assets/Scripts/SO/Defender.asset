@@ -15,5 +15,5 @@ MonoBehaviour:
   CharPrefab: {fileID: 6500870143819679817, guid: ab1d581c4433d4e47a7153669a61e088,
     type: 3}
   CharName: Defender
-  material: {fileID: 2100000, guid: 2b2fe69b7c4c35b428367cc9b47fd3dc, type: 2}
   EnergyCost: 6
+  materials: {fileID: 11400000, guid: 957f437d6bcc420489d5c6097f51b8f6, type: 2}

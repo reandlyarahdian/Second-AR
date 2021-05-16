@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bola : MonoBehaviour
 {
     public bool isBall;
+    public float radius;
+    public bool End;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -30,6 +32,23 @@ public class Bola : MonoBehaviour
         {
             transform.SetParent(null);
             isBall = false;
+        }
+    }
+
+    private void Update()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, radius);
+
+        foreach (var Collide in hitColliders)
+        {
+            if (Collide.tag == "Goal")
+            {
+                End = true;
+            }
+            else
+            {
+                End = false;
+            }
         }
     }
 }

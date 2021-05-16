@@ -4,9 +4,12 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class example : MonoBehaviour
 {
+    [HideInInspector]
     public int segments = 50;
     public float radius = 5;
-    LineRenderer line;
+    [HideInInspector]
+    public LineRenderer line;
+    [HideInInspector]
     public SphereCollider col;
     public static example i;
     AgentControll agent;

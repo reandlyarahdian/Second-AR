@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  radius: 0.8
+  radius: 1
   taging: Defender
+  Del: 0
 --- !u!135 &4132635582485892827
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -74,7 +75,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -722,7 +723,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a0ab483d29ce40e4ca784c8350c7af9d, type: 2}
+  - {fileID: 2100000, guid: 41bde1d9f5a938242a925cb475f2f292, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2142,6 +2143,10 @@ MonoBehaviour:
   wait: 2.5
   taging: Attacker
   radius: 10
+  isBall: 0
+  inactiveMat: {fileID: 2100000, guid: c617e76c5a2f29547bf16410f8a10111, type: 2}
+  DefeaultMat: {fileID: 0}
+  example: {fileID: 0}
 --- !u!135 &1857551562526958118
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2162,7 +2167,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857551562526958113}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2266,6 +2271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segments: 50
   radius: 5
+  line: {fileID: 0}
   col: {fileID: 1857551562526958118}
 --- !u!1 &1857551562566945705
 GameObject:

@@ -15,5 +15,5 @@ MonoBehaviour:
   CharPrefab: {fileID: 1857551562526958113, guid: 259bdf6eee8b0624b9627246520f8038,
     type: 3}
   CharName: Attacker
-  material: {fileID: 2100000, guid: 41bde1d9f5a938242a925cb475f2f292, type: 2}
   EnergyCost: 4
+  materials: {fileID: 11400000, guid: 94f8fe6d44b45314591683a51e26bab3, type: 2}

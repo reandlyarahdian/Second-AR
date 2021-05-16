@@ -9,8 +9,6 @@ public class TestSlider : MonoBehaviour
 
     public int maxValue;
 
-    public int minValue;
-
     public List<Image> images;
 
     public Color color;
@@ -21,11 +19,28 @@ public class TestSlider : MonoBehaviour
 
     public Transform parent;
 
+    public Image image;
+
     private void Awake()
+    {    
+        
+        
+    }
+
+    IEnumerator Start()
     {
-        slider = GetComponent<Slider>();
+        yield return new WaitForSeconds(0.1f);
         @char = GetComponent<CharControl>();
+        image.color = @char.materials.color;
         AddingValue();
+    }
+
+    private void Update()
+    {
+        if(slider.value%2 > 0)
+        {
+            ValueMin();
+        }
     }
 
     public void AddingValue()
@@ -47,22 +62,47 @@ public class TestSlider : MonoBehaviour
         switch (slider.value)
         {
             case 2:
-                images[0].color = color;
+                CurValue(0);
                 break;
             case 4:
-                images[1].color = color;
+                CurValue(1);
                 break;
             case 6:
-                images[2].color = color;
+                CurValue(2);
                 break;
             case 8:
-                images[3].color = color;
+                CurValue(3);
                 break;
             case 10:
-                images[4].color = color;
+                CurValue(4);
                 break;
             case 12:
-                images[5].color = color;
+                CurValue(5);
+                break;
+        }
+    }
+
+    public void ValueMin()
+    {
+        switch (slider.value)
+        {
+            case 1:
+                CurMin(0);
+                break;
+            case 3:
+                CurMin(1);
+                break;
+            case 5:
+                CurMin(2);
+                break;
+            case 7:
+                CurMin(3);
+                break;
+            case 9:
+                CurMin(4);
+                break;
+            case 11:
+                CurMin(5);
                 break;
         }
     }
@@ -76,6 +116,17 @@ public class TestSlider : MonoBehaviour
         }
         else return;
     }
+
+    public void CurValue(int i)
+    {
+        images[i].color = color;
+    }
+
+    public void CurMin(int i)
+    {
+        images[i].color = hilightColor;
+    }
+
     private void Instant(Vector3 position)
     {
         Instantiate(@char.CharPrefab, position, @char.CharPrefab.transform.rotation, parent);

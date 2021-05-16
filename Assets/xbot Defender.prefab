@@ -174,7 +174,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0d08ebf72873ae443adef66c1e03bc4a, type: 2}
+  - {fileID: 2100000, guid: 2b2fe69b7c4c35b428367cc9b47fd3dc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -680,8 +680,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  radius: 0.8
+  radius: 1
   taging: Attacker
+  Del: 0
 --- !u!135 &6097629172345557833
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1649,6 +1650,7 @@ GameObject:
   - component: {fileID: 6500870143819679863}
   - component: {fileID: 6500870143819679862}
   - component: {fileID: 6500870143819679861}
+  - component: {fileID: 1749469104132907683}
   m_Layer: 0
   m_Name: xbot Defender
   m_TagString: Untagged
@@ -1731,6 +1733,10 @@ MonoBehaviour:
   wait: 4
   taging: 
   radius: 0
+  isBall: 0
+  inactiveMat: {fileID: 2100000, guid: c617e76c5a2f29547bf16410f8a10111, type: 2}
+  DefeaultMat: {fileID: 0}
+  example: {fileID: 0}
 --- !u!135 &6500870143819679863
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1751,7 +1757,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6500870143819679817}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1855,7 +1861,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segments: 50
   radius: 5
+  line: {fileID: 0}
   col: {fileID: 6500870143819679863}
+--- !u!95 &1749469104132907683
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6500870143819679817}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6934346057044975699
 GameObject:
   m_ObjectHideFlags: 0
