@@ -2060,6 +2060,8 @@ GameObject:
   - component: {fileID: 1857551562526958118}
   - component: {fileID: 1857551562526958119}
   - component: {fileID: 1857551562526958112}
+  - component: {fileID: 2567685425221544122}
+  - component: {fileID: 8792557136242648410}
   m_Layer: 0
   m_Name: xbot Attacker
   m_TagString: Player
@@ -2147,6 +2149,7 @@ MonoBehaviour:
   inactiveMat: {fileID: 2100000, guid: c617e76c5a2f29547bf16410f8a10111, type: 2}
   DefeaultMat: {fileID: 0}
   example: {fileID: 0}
+  animControl: {fileID: 0}
 --- !u!135 &1857551562526958118
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2273,6 +2276,37 @@ MonoBehaviour:
   radius: 5
   line: {fileID: 0}
   col: {fileID: 1857551562526958118}
+--- !u!95 &2567685425221544122
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857551562526958113}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89c129227f204214689b2df1822c66c3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8792557136242648410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857551562526958113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9827e89e216e64a91d14e67e6296c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1857551562566945705
 GameObject:
   m_ObjectHideFlags: 0

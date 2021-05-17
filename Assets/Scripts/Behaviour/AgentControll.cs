@@ -32,6 +32,8 @@ public class AgentControll : MonoBehaviour
     public Material inactiveMat, DefeaultMat;
     [HideInInspector]
     public example example;
+    [HideInInspector]
+    public animationController animControl;
 
     void Start() 
     {
@@ -44,6 +46,8 @@ public class AgentControll : MonoBehaviour
         type = ObstacleAvoidanceType.NoObstacleAvoidance;
         DefeaultMat = GetComponentInChildren<SkinnedMeshRenderer>().material;
         example = GetComponent<example>();
+        animControl = GetComponent<animationController>();
+        animControl.Pose();
     }
 
     private void Update()
@@ -60,6 +64,7 @@ public class AgentControll : MonoBehaviour
         agent.isStopped = true;
         PasingBall();
         StartCoroutine(enumerator());
+        animControl.Attacker();
         agent.ResetPath();
     }
 
@@ -96,37 +101,43 @@ public class AgentControll : MonoBehaviour
         charaInactive();
         agent.speed = 2f;
         agent.destination = point;
-        transform.rotation = rotation; 
+        transform.rotation = rotation;
+        animControl.Jog();
         StartCoroutine(enumerator());
     }
 
     public void GoToBall() 
     {
         agent.speed = 1.5f;
-        agent.destination = ball.transform.position; 
+        agent.destination = ball.transform.position;
+        animControl.Jog();
     }
 
     public void GoToGate()
     {
         agent.speed = 0.75f;
         agent.destination = gate.transform.position;
+        animControl.Jog();
     }
 
     public void GoForward()
     {
         agent.speed = 1.5f;
-        agent.destination = new Vector3(transform.position.x, transform.position.y, 17f);
+        agent.destination = new Vector3(transform.position.x, transform.position.y, 40f);
+        animControl.Jog();
     }
 
     public void GoToTarget()
     {
         agent.speed = 1f;
         agent.destination = target.transform.position;
+        animControl.Jog();
     }
 
     public void StopAgent() 
     {
-        agent.isStopped = true; 
+        agent.isStopped = true;
+        animControl.Defender();
         agent.ResetPath(); 
     }
 

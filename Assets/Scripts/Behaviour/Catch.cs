@@ -8,6 +8,7 @@ public class Catch : Decision
     {
         if (sm.GetNavMeshAgent().IsAtDestionation())
         {
+            sm.GetNavMeshAgent().animControl.Defender();
             return true;
         }
         else

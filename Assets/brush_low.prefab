@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5386923756211890154}
   - component: {fileID: 6833332180218626299}
   - component: {fileID: 2501970464272723264}
+  - component: {fileID: 4722110769152468897}
   m_Layer: 0
   m_Name: brush_low
   m_TagString: Ball
@@ -110,3 +111,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4722110769152468897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386923756213893418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1c47084bf901a47a9e6f0e5b99d7d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBall: 0
+  radius: 1
+  End: 0
